@@ -45,12 +45,10 @@ function Card(article) {
   const author = document.createElement('div');
   author.classList.add('author');
 
-  // create image container
+  // add image to author
   const imgContainer = document.createElement('div');
-  imgContainer.classList.add('img-container');
-
-  // create image and add to container/author
   const img = document.createElement('img');
+  imgContainer.classList.add('img-container');
   img.src = article.authorPhoto;
   imgContainer.appendChild(img);
   author.appendChild(imgContainer);
