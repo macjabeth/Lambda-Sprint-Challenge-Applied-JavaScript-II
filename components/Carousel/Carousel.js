@@ -17,3 +17,75 @@
     <div class="right-button"> > </div>
   </div>
 */
+
+function Carousel() {
+  // create the carousel
+  const carousel = document.createElement('div');
+  carousel.classList.add('carousel');
+
+  // store carousel index
+  let index = 0;
+
+  // add left button
+  const leftBtn = document.createElement('div');
+  leftBtn.classList.add('left-button');
+  leftBtn.textContent = '<';
+  carousel.appendChild(leftBtn);
+
+  // add left btn event listner
+  leftBtn.addEventListener('click', () => {
+    // set current image display to none
+    images[index].style.display = 'none';
+
+    // cycle the index
+    index = index === 0 ? images.length - 1 : --index;
+
+    // set new image to a block display
+    images[index].style.display = 'block';
+  });
+
+  // collect images
+  const paths = [
+    "./assets/carousel/mountains.jpeg",
+    "./assets/carousel/computer.jpeg",
+    "./assets/carousel/trees.jpeg",
+    "./assets/carousel/turntable.jpeg"
+  ];
+
+  const images = paths.map(path => {
+    const img = document.createElement('img');
+    img.src = path;
+    return img;
+  });
+
+  // display first image in rotation
+  images[index].style.display = 'block'
+
+  // add images to the carousel
+  for (const img of images) carousel.appendChild(img);
+
+  // add right button
+  const rightBtn = document.createElement('div');
+  rightBtn.classList.add('right-button');
+  rightBtn.textContent = '>';
+  carousel.appendChild(rightBtn);
+
+  // add right btn event listner
+  rightBtn.addEventListener('click', () => {
+    // set current image display to none
+    images[index].style.display = 'none';
+
+    // cycle the index
+    index = index === images.length - 1 ? 0 : ++index;
+
+    // set new image to a block display
+    images[index].style.display = 'block';
+  });
+
+  // return the new component
+  return carousel;
+}
+
+const carouselContainer = document.querySelector('.carousel-container');
+
+carouselContainer.appendChild(Carousel());
