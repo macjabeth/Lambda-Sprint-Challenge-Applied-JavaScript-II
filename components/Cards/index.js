@@ -25,15 +25,16 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
     const cardsContainer = document.querySelector('.cards-container');
     for (const topic of topics) {
       for (const article of articles[topic]) {
-        cardsContainer.appendChild(Card(article));
+        cardsContainer.appendChild(Card(article, topic));
       }
     }
   });
 
-function Card(article) {
+function Card(article, topic) {
   // create the card
   const card = document.createElement('div');
   card.classList.add('card');
+  card.dataset.topic = topic;
 
   // add the headline
   const headline = document.createElement('div');
