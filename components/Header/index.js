@@ -17,7 +17,11 @@ function Header() {
   // add a date
   const date = document.createElement('span');
   date.classList.add('date');
-  date.textContent = 'MARCH 28, 2019';
+  date.textContent = Intl.DateTimeFormat('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric'
+  }).format(new Date()).toUpperCase();
   header.appendChild(date);
 
   // add a title
