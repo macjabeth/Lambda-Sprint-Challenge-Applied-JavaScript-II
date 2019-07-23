@@ -34,14 +34,14 @@ function Carousel() {
 
   // add left btn event listner
   leftBtn.addEventListener('click', () => {
-    // set current image display to none
+    // hide the current image
     images[index].style.visibility = 'hidden';
     images[index].style.opacity = 0;
 
     // cycle the index
     index = index === 0 ? images.length - 1 : --index;
 
-    // set new image to a block visibility
+    // display the new image
     images[index].style.visibility = 'visible';
     images[index].style.opacity = 1;
   });
@@ -60,7 +60,7 @@ function Carousel() {
     return img;
   });
 
-  // visibility first image in rotation
+  // display first image in rotation
   images[index].style.visibility = 'visible';
   images[index].style.opacity = 1;
 
@@ -75,14 +75,14 @@ function Carousel() {
 
   // add right btn event listner
   rightBtn.addEventListener('click', () => {
-    // set current image visibility to none
+    // hide the current image
     images[index].style.visibility = 'hidden';
     images[index].style.opacity = 0;
 
     // cycle the index
     index = index === images.length - 1 ? 0 : ++index;
 
-    // set new image to a block visibility
+    // display the new image
     images[index].style.visibility = 'visible';
     images[index].style.opacity = 1;
   });

@@ -21,7 +21,7 @@ function Tab(topic) {
   tab.classList.add('tab');
   tab.textContent = topic;
 
-  // store live collection of card
+  // store live collection of cards
   const cards = document.getElementsByClassName('card');
 
   // handle edge cases
