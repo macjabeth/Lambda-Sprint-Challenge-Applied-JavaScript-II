@@ -35,21 +35,23 @@ function Carousel() {
   // add left btn event listner
   leftBtn.addEventListener('click', () => {
     // set current image display to none
-    images[index].style.display = 'none';
+    images[index].style.visibility = 'hidden';
+    images[index].style.opacity = 0;
 
     // cycle the index
     index = index === 0 ? images.length - 1 : --index;
 
-    // set new image to a block display
-    images[index].style.display = 'block';
+    // set new image to a block visibility
+    images[index].style.visibility = 'visible';
+    images[index].style.opacity = 1;
   });
 
   // collect images
   const paths = [
-    "./assets/carousel/mountains.jpeg",
-    "./assets/carousel/computer.jpeg",
-    "./assets/carousel/trees.jpeg",
-    "./assets/carousel/turntable.jpeg"
+    './assets/carousel/mountains.jpeg',
+    './assets/carousel/computer.jpeg',
+    './assets/carousel/trees.jpeg',
+    './assets/carousel/turntable.jpeg'
   ];
 
   const images = paths.map(path => {
@@ -58,8 +60,9 @@ function Carousel() {
     return img;
   });
 
-  // display first image in rotation
-  images[index].style.display = 'block'
+  // visibility first image in rotation
+  images[index].style.visibility = 'visible';
+  images[index].style.opacity = 1;
 
   // add images to the carousel
   for (const img of images) carousel.appendChild(img);
@@ -72,14 +75,16 @@ function Carousel() {
 
   // add right btn event listner
   rightBtn.addEventListener('click', () => {
-    // set current image display to none
-    images[index].style.display = 'none';
+    // set current image visibility to none
+    images[index].style.visibility = 'hidden';
+    images[index].style.opacity = 0;
 
     // cycle the index
     index = index === images.length - 1 ? 0 : ++index;
 
-    // set new image to a block display
-    images[index].style.display = 'block';
+    // set new image to a block visibility
+    images[index].style.visibility = 'visible';
+    images[index].style.opacity = 1;
   });
 
   // return the new component
