@@ -226,6 +226,10 @@ body {
   width: 380px;
   margin-bottom: 16px;
   padding: 24px;
+  transition: 200ms;
+}
+.cards-container .card:hover {
+  transform: scale(1.05);
 }
 .cards-container .card .headline {
   font-size: 25px;
